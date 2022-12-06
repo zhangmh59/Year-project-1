@@ -1,0 +1,500 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+  </PropertyGroup>
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="MinSizeRel|x64">
+      <Configuration>MinSizeRel</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="RelWithDebInfo|x64">
+      <Configuration>RelWithDebInfo</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{F263DECD-7AD6-35C4-80DA-111C4957C41C}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <WindowsTargetPlatformVersion>10.0.22621.0</WindowsTargetPlatformVersion>
+    <Platform>x64</Platform>
+    <ProjectName>SDL2</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">F:\01_sdl\build\libs\SDL2-2.0.16\Debug\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">SDL2.dir\Debug\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">SDL2d</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.dll</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">F:\01_sdl\build\libs\SDL2-2.0.16\Release\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">SDL2.dir\Release\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">SDL2</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.dll</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">F:\01_sdl\build\libs\SDL2-2.0.16\MinSizeRel\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">SDL2.dir\MinSizeRel\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">SDL2</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">.dll</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">F:\01_sdl\build\libs\SDL2-2.0.16\RelWithDebInfo\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">SDL2.dir\RelWithDebInfo\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">SDL2</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">.dll</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">true</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">true</GenerateManifest>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>F:\01_sdl\build\libs\SDL2-2.0.16\include;F:\01_sdl\libs\SDL2-2.0.16\include;F:\01_sdl\libs\SDL2-2.0.16\src\video\khronos;F:\01_sdl\libs\SDL2-2.0.16\src\hidapi\hidapi;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <Optimization>Disabled</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <UseFullPaths>false</UseFullPaths>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;USING_GENERATED_CONFIG_H;CMAKE_INTDIR="Debug";DLL_EXPORT</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_DEBUG;_WINDOWS;USING_GENERATED_CONFIG_H;CMAKE_INTDIR=\"Debug\";DLL_EXPORT</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>F:\01_sdl\build\libs\SDL2-2.0.16\include;F:\01_sdl\libs\SDL2-2.0.16\include;F:\01_sdl\libs\SDL2-2.0.16\src\video\khronos;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>F:\01_sdl\build\libs\SDL2-2.0.16\include;F:\01_sdl\libs\SDL2-2.0.16\include;F:\01_sdl\libs\SDL2-2.0.16\src\video\khronos;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>user32.lib;gdi32.lib;winmm.lib;imm32.lib;ole32.lib;oleaut32.lib;version.lib;uuid.lib;advapi32.lib;setupapi.lib;shell32.lib;dinput8.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreAllDefaultLibraries>true</IgnoreAllDefaultLibraries>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>F:/01_sdl/build/libs/SDL2-2.0.16/Debug/SDL2d.lib</ImportLibrary>
+      <ProgramDataBaseFile>F:/01_sdl/build/libs/SDL2-2.0.16/Debug/SDL2d.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>F:\01_sdl\build\libs\SDL2-2.0.16\include;F:\01_sdl\libs\SDL2-2.0.16\include;F:\01_sdl\libs\SDL2-2.0.16\src\video\khronos;F:\01_sdl\libs\SDL2-2.0.16\src\hidapi\hidapi;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <UseFullPaths>false</UseFullPaths>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;USING_GENERATED_CONFIG_H;CMAKE_INTDIR="Release";DLL_EXPORT</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;USING_GENERATED_CONFIG_H;CMAKE_INTDIR=\"Release\";DLL_EXPORT</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>F:\01_sdl\build\libs\SDL2-2.0.16\include;F:\01_sdl\libs\SDL2-2.0.16\include;F:\01_sdl\libs\SDL2-2.0.16\src\video\khronos;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>F:\01_sdl\build\libs\SDL2-2.0.16\include;F:\01_sdl\libs\SDL2-2.0.16\include;F:\01_sdl\libs\SDL2-2.0.16\src\video\khronos;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>user32.lib;gdi32.lib;winmm.lib;imm32.lib;ole32.lib;oleaut32.lib;version.lib;uuid.lib;advapi32.lib;setupapi.lib;shell32.lib;dinput8.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <IgnoreAllDefaultLibraries>true</IgnoreAllDefaultLibraries>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>F:/01_sdl/build/libs/SDL2-2.0.16/Release/SDL2.lib</ImportLibrary>
+      <ProgramDataBaseFile>F:/01_sdl/build/libs/SDL2-2.0.16/Release/SDL2.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>F:\01_sdl\build\libs\SDL2-2.0.16\include;F:\01_sdl\libs\SDL2-2.0.16\include;F:\01_sdl\libs\SDL2-2.0.16\src\video\khronos;F:\01_sdl\libs\SDL2-2.0.16\src\hidapi\hidapi;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <Optimization>MinSpace</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <UseFullPaths>false</UseFullPaths>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;USING_GENERATED_CONFIG_H;CMAKE_INTDIR="MinSizeRel";DLL_EXPORT</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;USING_GENERATED_CONFIG_H;CMAKE_INTDIR=\"MinSizeRel\";DLL_EXPORT</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>F:\01_sdl\build\libs\SDL2-2.0.16\include;F:\01_sdl\libs\SDL2-2.0.16\include;F:\01_sdl\libs\SDL2-2.0.16\src\video\khronos;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>F:\01_sdl\build\libs\SDL2-2.0.16\include;F:\01_sdl\libs\SDL2-2.0.16\include;F:\01_sdl\libs\SDL2-2.0.16\src\video\khronos;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>user32.lib;gdi32.lib;winmm.lib;imm32.lib;ole32.lib;oleaut32.lib;version.lib;uuid.lib;advapi32.lib;setupapi.lib;shell32.lib;dinput8.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>F:/01_sdl/build/libs/SDL2-2.0.16/MinSizeRel/SDL2.lib</ImportLibrary>
+      <ProgramDataBaseFile>F:/01_sdl/build/libs/SDL2-2.0.16/MinSizeRel/SDL2.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>F:\01_sdl\build\libs\SDL2-2.0.16\include;F:\01_sdl\libs\SDL2-2.0.16\include;F:\01_sdl\libs\SDL2-2.0.16\src\video\khronos;F:\01_sdl\libs\SDL2-2.0.16\src\hidapi\hidapi;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <UseFullPaths>false</UseFullPaths>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;USING_GENERATED_CONFIG_H;CMAKE_INTDIR="RelWithDebInfo";DLL_EXPORT</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;USING_GENERATED_CONFIG_H;CMAKE_INTDIR=\"RelWithDebInfo\";DLL_EXPORT</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>F:\01_sdl\build\libs\SDL2-2.0.16\include;F:\01_sdl\libs\SDL2-2.0.16\include;F:\01_sdl\libs\SDL2-2.0.16\src\video\khronos;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>F:\01_sdl\build\libs\SDL2-2.0.16\include;F:\01_sdl\libs\SDL2-2.0.16\include;F:\01_sdl\libs\SDL2-2.0.16\src\video\khronos;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>user32.lib;gdi32.lib;winmm.lib;imm32.lib;ole32.lib;oleaut32.lib;version.lib;uuid.lib;advapi32.lib;setupapi.lib;shell32.lib;dinput8.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>F:/01_sdl/build/libs/SDL2-2.0.16/RelWithDebInfo/SDL2.lib</ImportLibrary>
+      <ProgramDataBaseFile>F:/01_sdl/build/libs/SDL2-2.0.16/RelWithDebInfo/SDL2.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="F:\01_sdl\libs\SDL2-2.0.16\CMakeLists.txt">
+      <UseUtf8Encoding>Always</UseUtf8Encoding>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule F:/01_sdl/libs/SDL2-2.0.16/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+C:\DownloadSoftware\CMake\bin\cmake.exe -SF:/01_sdl -BF:/01_sdl/build --check-stamp-file F:/01_sdl/build/libs/SDL2-2.0.16/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\BasicConfigVersion-AnyNewerVersion.cmake.in;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\CMakeCheckCompilerFlagCommonPatterns.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\CMakeDependentOption.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\CMakePackageConfigHelpers.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\CheckCCompilerFlag.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\CheckCSourceCompiles.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\CheckCSourceRuns.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\CheckCXXCompilerFlag.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\CheckCXXSourceCompiles.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\CheckIncludeFile.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\CheckIncludeFileCXX.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\CheckIncludeFiles.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\CheckLibraryExists.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\CheckStructHasMember.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\CheckSymbolExists.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\CheckTypeSize.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\FindPackageHandleStandardArgs.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\FindPackageMessage.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\FindPkgConfig.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\GNUInstallDirs.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\Internal\CheckCompilerFlag.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\Internal\CheckFlagCommonConfig.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\Internal\CheckSourceCompiles.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\Internal\CheckSourceRuns.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\WriteBasicConfigVersionFile.cmake;F:\01_sdl\libs\SDL2-2.0.16\cmake\macros.cmake;F:\01_sdl\libs\SDL2-2.0.16\cmake\sdlchecks.cmake;F:\01_sdl\libs\SDL2-2.0.16\cmake_uninstall.cmake.in;F:\01_sdl\libs\SDL2-2.0.16\include\SDL_config.h.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">F:\01_sdl\build\libs\SDL2-2.0.16\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule F:/01_sdl/libs/SDL2-2.0.16/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+C:\DownloadSoftware\CMake\bin\cmake.exe -SF:/01_sdl -BF:/01_sdl/build --check-stamp-file F:/01_sdl/build/libs/SDL2-2.0.16/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\BasicConfigVersion-AnyNewerVersion.cmake.in;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\CMakeCheckCompilerFlagCommonPatterns.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\CMakeDependentOption.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\CMakePackageConfigHelpers.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\CheckCCompilerFlag.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\CheckCSourceCompiles.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\CheckCSourceRuns.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\CheckCXXCompilerFlag.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\CheckCXXSourceCompiles.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\CheckIncludeFile.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\CheckIncludeFileCXX.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\CheckIncludeFiles.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\CheckLibraryExists.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\CheckStructHasMember.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\CheckSymbolExists.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\CheckTypeSize.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\FindPackageHandleStandardArgs.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\FindPackageMessage.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\FindPkgConfig.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\GNUInstallDirs.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\Internal\CheckCompilerFlag.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\Internal\CheckFlagCommonConfig.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\Internal\CheckSourceCompiles.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\Internal\CheckSourceRuns.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\WriteBasicConfigVersionFile.cmake;F:\01_sdl\libs\SDL2-2.0.16\cmake\macros.cmake;F:\01_sdl\libs\SDL2-2.0.16\cmake\sdlchecks.cmake;F:\01_sdl\libs\SDL2-2.0.16\cmake_uninstall.cmake.in;F:\01_sdl\libs\SDL2-2.0.16\include\SDL_config.h.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">F:\01_sdl\build\libs\SDL2-2.0.16\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule F:/01_sdl/libs/SDL2-2.0.16/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+C:\DownloadSoftware\CMake\bin\cmake.exe -SF:/01_sdl -BF:/01_sdl/build --check-stamp-file F:/01_sdl/build/libs/SDL2-2.0.16/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\BasicConfigVersion-AnyNewerVersion.cmake.in;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\CMakeCheckCompilerFlagCommonPatterns.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\CMakeDependentOption.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\CMakePackageConfigHelpers.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\CheckCCompilerFlag.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\CheckCSourceCompiles.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\CheckCSourceRuns.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\CheckCXXCompilerFlag.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\CheckCXXSourceCompiles.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\CheckIncludeFile.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\CheckIncludeFileCXX.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\CheckIncludeFiles.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\CheckLibraryExists.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\CheckStructHasMember.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\CheckSymbolExists.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\CheckTypeSize.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\FindPackageHandleStandardArgs.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\FindPackageMessage.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\FindPkgConfig.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\GNUInstallDirs.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\Internal\CheckCompilerFlag.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\Internal\CheckFlagCommonConfig.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\Internal\CheckSourceCompiles.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\Internal\CheckSourceRuns.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\WriteBasicConfigVersionFile.cmake;F:\01_sdl\libs\SDL2-2.0.16\cmake\macros.cmake;F:\01_sdl\libs\SDL2-2.0.16\cmake\sdlchecks.cmake;F:\01_sdl\libs\SDL2-2.0.16\cmake_uninstall.cmake.in;F:\01_sdl\libs\SDL2-2.0.16\include\SDL_config.h.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">F:\01_sdl\build\libs\SDL2-2.0.16\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule F:/01_sdl/libs/SDL2-2.0.16/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+C:\DownloadSoftware\CMake\bin\cmake.exe -SF:/01_sdl -BF:/01_sdl/build --check-stamp-file F:/01_sdl/build/libs/SDL2-2.0.16/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\BasicConfigVersion-AnyNewerVersion.cmake.in;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\CMakeCheckCompilerFlagCommonPatterns.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\CMakeDependentOption.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\CMakePackageConfigHelpers.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\CheckCCompilerFlag.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\CheckCSourceCompiles.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\CheckCSourceRuns.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\CheckCXXCompilerFlag.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\CheckCXXSourceCompiles.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\CheckIncludeFile.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\CheckIncludeFileCXX.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\CheckIncludeFiles.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\CheckLibraryExists.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\CheckStructHasMember.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\CheckSymbolExists.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\CheckTypeSize.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\FindPackageHandleStandardArgs.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\FindPackageMessage.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\FindPkgConfig.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\GNUInstallDirs.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\Internal\CheckCompilerFlag.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\Internal\CheckFlagCommonConfig.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\Internal\CheckSourceCompiles.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\Internal\CheckSourceRuns.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\WriteBasicConfigVersionFile.cmake;F:\01_sdl\libs\SDL2-2.0.16\cmake\macros.cmake;F:\01_sdl\libs\SDL2-2.0.16\cmake\sdlchecks.cmake;F:\01_sdl\libs\SDL2-2.0.16\cmake_uninstall.cmake.in;F:\01_sdl\libs\SDL2-2.0.16\include\SDL_config.h.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">F:\01_sdl\build\libs\SDL2-2.0.16\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="F:\01_sdl\libs\SDL2-2.0.16\src\SDL.c" />
+    <ClCompile Include="F:\01_sdl\libs\SDL2-2.0.16\src\SDL_assert.c" />
+    <ClCompile Include="F:\01_sdl\libs\SDL2-2.0.16\src\SDL_dataqueue.c" />
+    <ClCompile Include="F:\01_sdl\libs\SDL2-2.0.16\src\SDL_error.c" />
+    <ClCompile Include="F:\01_sdl\libs\SDL2-2.0.16\src\SDL_hints.c" />
+    <ClCompile Include="F:\01_sdl\libs\SDL2-2.0.16\src\SDL_log.c" />
+    <ClCompile Include="F:\01_sdl\libs\SDL2-2.0.16\src\atomic\SDL_atomic.c" />
+    <ClCompile Include="F:\01_sdl\libs\SDL2-2.0.16\src\atomic\SDL_spinlock.c" />
+    <ClCompile Include="F:\01_sdl\libs\SDL2-2.0.16\src\audio\SDL_audio.c" />
+    <ClCompile Include="F:\01_sdl\libs\SDL2-2.0.16\src\audio\SDL_audiocvt.c" />
+    <ClCompile Include="F:\01_sdl\libs\SDL2-2.0.16\src\audio\SDL_audiodev.c" />
+    <ClCompile Include="F:\01_sdl\libs\SDL2-2.0.16\src\audio\SDL_audiotypecvt.c" />
+    <ClCompile Include="F:\01_sdl\libs\SDL2-2.0.16\src\audio\SDL_mixer.c" />
+    <ClCompile Include="F:\01_sdl\libs\SDL2-2.0.16\src\audio\SDL_wave.c" />
+    <ClCompile Include="F:\01_sdl\libs\SDL2-2.0.16\src\cpuinfo\SDL_cpuinfo.c" />
+    <ClCompile Include="F:\01_sdl\libs\SDL2-2.0.16\src\dynapi\SDL_dynapi.c" />
+    <ClCompile Include="F:\01_sdl\libs\SDL2-2.0.16\src\events\SDL_clipboardevents.c" />
+    <ClCompile Include="F:\01_sdl\libs\SDL2-2.0.16\src\events\SDL_displayevents.c" />
+    <ClCompile Include="F:\01_sdl\libs\SDL2-2.0.16\src\events\SDL_dropevents.c" />
+    <ClCompile Include="F:\01_sdl\libs\SDL2-2.0.16\src\events\SDL_events.c" />
+    <ClCompile Include="F:\01_sdl\libs\SDL2-2.0.16\src\events\SDL_gesture.c" />
+    <ClCompile Include="F:\01_sdl\libs\SDL2-2.0.16\src\events\SDL_keyboard.c" />
+    <ClCompile Include="F:\01_sdl\libs\SDL2-2.0.16\src\events\SDL_mouse.c" />
+    <ClCompile Include="F:\01_sdl\libs\SDL2-2.0.16\src\events\SDL_quit.c" />
+    <ClCompile Include="F:\01_sdl\libs\SDL2-2.0.16\src\events\SDL_touch.c" />
+    <ClCompile Include="F:\01_sdl\libs\SDL2-2.0.16\src\events\SDL_windowevents.c" />
+    <ClCompile Include="F:\01_sdl\libs\SDL2-2.0.16\src\file\SDL_rwops.c" />
+    <ClCompile Include="F:\01_sdl\libs\SDL2-2.0.16\src\haptic\SDL_haptic.c" />
+    <ClCompile Include="F:\01_sdl\libs\SDL2-2.0.16\src\libm\e_atan2.c" />
+    <ClCompile Include="F:\01_sdl\libs\SDL2-2.0.16\src\libm\e_exp.c" />
+    <ClCompile Include="F:\01_sdl\libs\SDL2-2.0.16\src\libm\e_fmod.c" />
+    <ClCompile Include="F:\01_sdl\libs\SDL2-2.0.16\src\libm\e_log.c" />
+    <ClCompile Include="F:\01_sdl\libs\SDL2-2.0.16\src\libm\e_log10.c" />
+    <ClCompile Include="F:\01_sdl\libs\SDL2-2.0.16\src\libm\e_pow.c" />
+    <ClCompile Include="F:\01_sdl\libs\SDL2-2.0.16\src\libm\e_rem_pio2.c" />
+    <ClCompile Include="F:\01_sdl\libs\SDL2-2.0.16\src\libm\e_sqrt.c" />
+    <ClCompile Include="F:\01_sdl\libs\SDL2-2.0.16\src\libm\k_cos.c" />
+    <ClCompile Include="F:\01_sdl\libs\SDL2-2.0.16\src\libm\k_rem_pio2.c" />
+    <ClCompile Include="F:\01_sdl\libs\SDL2-2.0.16\src\libm\k_sin.c" />
+    <ClCompile Include="F:\01_sdl\libs\SDL2-2.0.16\src\libm\k_tan.c" />
+    <ClCompile Include="F:\01_sdl\libs\SDL2-2.0.16\src\libm\s_atan.c" />
+    <ClCompile Include="F:\01_sdl\libs\SDL2-2.0.16\src\libm\s_copysign.c" />
+    <ClCompile Include="F:\01_sdl\libs\SDL2-2.0.16\src\libm\s_cos.c" />
+    <ClCompile Include="F:\01_sdl\libs\SDL2-2.0.16\src\libm\s_fabs.c" />
+    <ClCompile Include="F:\01_sdl\libs\SDL2-2.0.16\src\libm\s_floor.c" />
+    <ClCompile Include="F:\01_sdl\libs\SDL2-2.0.16\src\libm\s_scalbn.c" />
+    <ClCompile Include="F:\01_sdl\libs\SDL2-2.0.16\src\libm\s_sin.c" />
+    <ClCompile Include="F:\01_sdl\libs\SDL2-2.0.16\src\libm\s_tan.c" />
+    <ClCompile Include="F:\01_sdl\libs\SDL2-2.0.16\src\locale\SDL_locale.c" />
+    <ClCompile Include="F:\01_sdl\libs\SDL2-2.0.16\src\misc\SDL_url.c" />
+    <ClCompile Include="F:\01_sdl\libs\SDL2-2.0.16\src\power\SDL_power.c" />
+    <ClCompile Include="F:\01_sdl\libs\SDL2-2.0.16\src\render\SDL_d3dmath.c" />
+    <ClCompile Include="F:\01_sdl\libs\SDL2-2.0.16\src\render\SDL_render.c" />
+    <ClCompile Include="F:\01_sdl\libs\SDL2-2.0.16\src\render\SDL_yuv_sw.c" />
+    <ClCompile Include="F:\01_sdl\libs\SDL2-2.0.16\src\render\direct3d\SDL_render_d3d.c" />
+    <ClCompile Include="F:\01_sdl\libs\SDL2-2.0.16\src\render\direct3d\SDL_shaders_d3d.c" />
+    <ClCompile Include="F:\01_sdl\libs\SDL2-2.0.16\src\render\direct3d11\SDL_render_d3d11.c" />
+    <ClCompile Include="F:\01_sdl\libs\SDL2-2.0.16\src\render\direct3d11\SDL_shaders_d3d11.c" />
+    <ClCompile Include="F:\01_sdl\libs\SDL2-2.0.16\src\render\opengl\SDL_render_gl.c" />
+    <ClCompile Include="F:\01_sdl\libs\SDL2-2.0.16\src\render\opengl\SDL_shaders_gl.c" />
+    <ClCompile Include="F:\01_sdl\libs\SDL2-2.0.16\src\render\opengles\SDL_render_gles.c" />
+    <ClCompile Include="F:\01_sdl\libs\SDL2-2.0.16\src\render\opengles2\SDL_render_gles2.c" />
+    <ClCompile Include="F:\01_sdl\libs\SDL2-2.0.16\src\render\opengles2\SDL_shaders_gles2.c" />
+    <ClCompile Include="F:\01_sdl\libs\SDL2-2.0.16\src\render\psp\SDL_render_psp.c" />
+    <ClCompile Include="F:\01_sdl\libs\SDL2-2.0.16\src\render\software\SDL_blendfillrect.c" />
+    <ClCompile Include="F:\01_sdl\libs\SDL2-2.0.16\src\render\software\SDL_blendline.c" />
+    <ClCompile Include="F:\01_sdl\libs\SDL2-2.0.16\src\render\software\SDL_blendpoint.c" />
+    <ClCompile Include="F:\01_sdl\libs\SDL2-2.0.16\src\render\software\SDL_drawline.c" />
+    <ClCompile Include="F:\01_sdl\libs\SDL2-2.0.16\src\render\software\SDL_drawpoint.c" />
+    <ClCompile Include="F:\01_sdl\libs\SDL2-2.0.16\src\render\software\SDL_render_sw.c" />
+    <ClCompile Include="F:\01_sdl\libs\SDL2-2.0.16\src\render\software\SDL_rotate.c" />
+    <ClCompile Include="F:\01_sdl\libs\SDL2-2.0.16\src\render\vitagxm\SDL_render_vita_gxm.c" />
+    <ClCompile Include="F:\01_sdl\libs\SDL2-2.0.16\src\render\vitagxm\SDL_render_vita_gxm_memory.c" />
+    <ClCompile Include="F:\01_sdl\libs\SDL2-2.0.16\src\render\vitagxm\SDL_render_vita_gxm_tools.c" />
+    <ClCompile Include="F:\01_sdl\libs\SDL2-2.0.16\src\sensor\SDL_sensor.c" />
+    <ClCompile Include="F:\01_sdl\libs\SDL2-2.0.16\src\stdlib\SDL_crc32.c" />
+    <ClCompile Include="F:\01_sdl\libs\SDL2-2.0.16\src\stdlib\SDL_getenv.c" />
+    <ClCompile Include="F:\01_sdl\libs\SDL2-2.0.16\src\stdlib\SDL_iconv.c" />
+    <ClCompile Include="F:\01_sdl\libs\SDL2-2.0.16\src\stdlib\SDL_malloc.c" />
+    <ClCompile Include="F:\01_sdl\libs\SDL2-2.0.16\src\stdlib\SDL_qsort.c" />
+    <ClCompile Include="F:\01_sdl\libs\SDL2-2.0.16\src\stdlib\SDL_stdlib.c" />
+    <ClCompile Include="F:\01_sdl\libs\SDL2-2.0.16\src\stdlib\SDL_string.c" />
+    <ClCompile Include="F:\01_sdl\libs\SDL2-2.0.16\src\stdlib\SDL_strtokr.c" />
+    <ClCompile Include="F:\01_sdl\libs\SDL2-2.0.16\src\thread\SDL_thread.c" />
+    <ClCompile Include="F:\01_sdl\libs\SDL2-2.0.16\src\timer\SDL_timer.c" />
+    <ClCompile Include="F:\01_sdl\libs\SDL2-2.0.16\src\video\SDL_RLEaccel.c" />
+    <ClCompile Include="F:\01_sdl\libs\SDL2-2.0.16\src\video\SDL_blit.c" />
+    <ClCompile Include="F:\01_sdl\libs\SDL2-2.0.16\src\video\SDL_blit_0.c" />
+    <ClCompile Include="F:\01_sdl\libs\SDL2-2.0.16\src\video\SDL_blit_1.c" />
+    <ClCompile Include="F:\01_sdl\libs\SDL2-2.0.16\src\video\SDL_blit_A.c" />
+    <ClCompile Include="F:\01_sdl\libs\SDL2-2.0.16\src\video\SDL_blit_N.c" />
+    <ClCompile Include="F:\01_sdl\libs\SDL2-2.0.16\src\video\SDL_blit_auto.c" />
+    <ClCompile Include="F:\01_sdl\libs\SDL2-2.0.16\src\video\SDL_blit_copy.c" />
+    <ClCompile Include="F:\01_sdl\libs\SDL2-2.0.16\src\video\SDL_blit_slow.c" />
+    <ClCompile Include="F:\01_sdl\libs\SDL2-2.0.16\src\video\SDL_bmp.c" />
+    <ClCompile Include="F:\01_sdl\libs\SDL2-2.0.16\src\video\SDL_clipboard.c" />
+    <ClCompile Include="F:\01_sdl\libs\SDL2-2.0.16\src\video\SDL_egl.c" />
+    <ClCompile Include="F:\01_sdl\libs\SDL2-2.0.16\src\video\SDL_fillrect.c" />
+    <ClCompile Include="F:\01_sdl\libs\SDL2-2.0.16\src\video\SDL_pixels.c" />
+    <ClCompile Include="F:\01_sdl\libs\SDL2-2.0.16\src\video\SDL_rect.c" />
+    <ClCompile Include="F:\01_sdl\libs\SDL2-2.0.16\src\video\SDL_shape.c" />
+    <ClCompile Include="F:\01_sdl\libs\SDL2-2.0.16\src\video\SDL_stretch.c" />
+    <ClCompile Include="F:\01_sdl\libs\SDL2-2.0.16\src\video\SDL_surface.c" />
+    <ClCompile Include="F:\01_sdl\libs\SDL2-2.0.16\src\video\SDL_video.c" />
+    <ClCompile Include="F:\01_sdl\libs\SDL2-2.0.16\src\video\SDL_vulkan_utils.c" />
+    <ClCompile Include="F:\01_sdl\libs\SDL2-2.0.16\src\video\SDL_yuv.c" />
+    <ClCompile Include="F:\01_sdl\libs\SDL2-2.0.16\src\video\yuv2rgb\yuv_rgb.c" />
+    <ClCompile Include="F:\01_sdl\libs\SDL2-2.0.16\src\joystick\SDL_gamecontroller.c" />
+    <ClCompile Include="F:\01_sdl\libs\SDL2-2.0.16\src\joystick\SDL_joystick.c" />
+    <ClCompile Include="F:\01_sdl\libs\SDL2-2.0.16\src\audio\dummy\SDL_dummyaudio.c" />
+    <ClCompile Include="F:\01_sdl\libs\SDL2-2.0.16\src\audio\disk\SDL_diskaudio.c" />
+    <ClCompile Include="F:\01_sdl\libs\SDL2-2.0.16\src\joystick\virtual\SDL_virtualjoystick.c" />
+    <ClCompile Include="F:\01_sdl\libs\SDL2-2.0.16\src\video\dummy\SDL_nullevents.c" />
+    <ClCompile Include="F:\01_sdl\libs\SDL2-2.0.16\src\video\dummy\SDL_nullframebuffer.c" />
+    <ClCompile Include="F:\01_sdl\libs\SDL2-2.0.16\src\video\dummy\SDL_nullvideo.c" />
+    <ClCompile Include="F:\01_sdl\libs\SDL2-2.0.16\src\core\windows\SDL_hid.c" />
+    <ClCompile Include="F:\01_sdl\libs\SDL2-2.0.16\src\core\windows\SDL_windows.c" />
+    <ClCompile Include="F:\01_sdl\libs\SDL2-2.0.16\src\core\windows\SDL_xinput.c" />
+    <ClCompile Include="F:\01_sdl\libs\SDL2-2.0.16\src\misc\windows\SDL_sysurl.c" />
+    <ClCompile Include="F:\01_sdl\libs\SDL2-2.0.16\src\audio\winmm\SDL_winmm.c" />
+    <ClCompile Include="F:\01_sdl\libs\SDL2-2.0.16\src\audio\directsound\SDL_directsound.c" />
+    <ClCompile Include="F:\01_sdl\libs\SDL2-2.0.16\src\audio\wasapi\SDL_wasapi.c" />
+    <ClCompile Include="F:\01_sdl\libs\SDL2-2.0.16\src\audio\wasapi\SDL_wasapi_win32.c" />
+    <ClCompile Include="F:\01_sdl\libs\SDL2-2.0.16\src\video\windows\SDL_windowsclipboard.c" />
+    <ClCompile Include="F:\01_sdl\libs\SDL2-2.0.16\src\video\windows\SDL_windowsevents.c" />
+    <ClCompile Include="F:\01_sdl\libs\SDL2-2.0.16\src\video\windows\SDL_windowsframebuffer.c" />
+    <ClCompile Include="F:\01_sdl\libs\SDL2-2.0.16\src\video\windows\SDL_windowskeyboard.c" />
+    <ClCompile Include="F:\01_sdl\libs\SDL2-2.0.16\src\video\windows\SDL_windowsmessagebox.c" />
+    <ClCompile Include="F:\01_sdl\libs\SDL2-2.0.16\src\video\windows\SDL_windowsmodes.c" />
+    <ClCompile Include="F:\01_sdl\libs\SDL2-2.0.16\src\video\windows\SDL_windowsmouse.c" />
+    <ClCompile Include="F:\01_sdl\libs\SDL2-2.0.16\src\video\windows\SDL_windowsopengl.c" />
+    <ClCompile Include="F:\01_sdl\libs\SDL2-2.0.16\src\video\windows\SDL_windowsopengles.c" />
+    <ClCompile Include="F:\01_sdl\libs\SDL2-2.0.16\src\video\windows\SDL_windowsshape.c" />
+    <ClCompile Include="F:\01_sdl\libs\SDL2-2.0.16\src\video\windows\SDL_windowsvideo.c" />
+    <ClCompile Include="F:\01_sdl\libs\SDL2-2.0.16\src\video\windows\SDL_windowsvulkan.c" />
+    <ClCompile Include="F:\01_sdl\libs\SDL2-2.0.16\src\video\windows\SDL_windowswindow.c" />
+    <ClCompile Include="F:\01_sdl\libs\SDL2-2.0.16\src\thread\generic\SDL_syscond.c" />
+    <ClCompile Include="F:\01_sdl\libs\SDL2-2.0.16\src\thread\windows\SDL_syscond_srw.c" />
+    <ClCompile Include="F:\01_sdl\libs\SDL2-2.0.16\src\thread\windows\SDL_sysmutex.c" />
+    <ClCompile Include="F:\01_sdl\libs\SDL2-2.0.16\src\thread\windows\SDL_syssem.c" />
+    <ClCompile Include="F:\01_sdl\libs\SDL2-2.0.16\src\thread\windows\SDL_systhread.c" />
+    <ClCompile Include="F:\01_sdl\libs\SDL2-2.0.16\src\thread\windows\SDL_systls.c" />
+    <ClCompile Include="F:\01_sdl\libs\SDL2-2.0.16\src\sensor\windows\SDL_windowssensor.c" />
+    <ClCompile Include="F:\01_sdl\libs\SDL2-2.0.16\src\power\windows\SDL_syspower.c" />
+    <ClCompile Include="F:\01_sdl\libs\SDL2-2.0.16\src\locale\windows\SDL_syslocale.c" />
+    <ClCompile Include="F:\01_sdl\libs\SDL2-2.0.16\src\filesystem\windows\SDL_sysfilesystem.c" />
+    <ClCompile Include="F:\01_sdl\libs\SDL2-2.0.16\src\timer\windows\SDL_systimer.c" />
+    <ClCompile Include="F:\01_sdl\libs\SDL2-2.0.16\src\loadso\windows\SDL_sysloadso.c" />
+    <ClCompile Include="F:\01_sdl\libs\SDL2-2.0.16\src\joystick\hidapi\SDL_hidapi_gamecube.c" />
+    <ClCompile Include="F:\01_sdl\libs\SDL2-2.0.16\src\joystick\hidapi\SDL_hidapi_luna.c" />
+    <ClCompile Include="F:\01_sdl\libs\SDL2-2.0.16\src\joystick\hidapi\SDL_hidapi_ps4.c" />
+    <ClCompile Include="F:\01_sdl\libs\SDL2-2.0.16\src\joystick\hidapi\SDL_hidapi_ps5.c" />
+    <ClCompile Include="F:\01_sdl\libs\SDL2-2.0.16\src\joystick\hidapi\SDL_hidapi_rumble.c" />
+    <ClCompile Include="F:\01_sdl\libs\SDL2-2.0.16\src\joystick\hidapi\SDL_hidapi_stadia.c" />
+    <ClCompile Include="F:\01_sdl\libs\SDL2-2.0.16\src\joystick\hidapi\SDL_hidapi_steam.c" />
+    <ClCompile Include="F:\01_sdl\libs\SDL2-2.0.16\src\joystick\hidapi\SDL_hidapi_switch.c" />
+    <ClCompile Include="F:\01_sdl\libs\SDL2-2.0.16\src\joystick\hidapi\SDL_hidapi_xbox360.c" />
+    <ClCompile Include="F:\01_sdl\libs\SDL2-2.0.16\src\joystick\hidapi\SDL_hidapi_xbox360w.c" />
+    <ClCompile Include="F:\01_sdl\libs\SDL2-2.0.16\src\joystick\hidapi\SDL_hidapi_xboxone.c" />
+    <ClCompile Include="F:\01_sdl\libs\SDL2-2.0.16\src\joystick\hidapi\SDL_hidapijoystick.c" />
+    <ClCompile Include="F:\01_sdl\libs\SDL2-2.0.16\src\hidapi\windows\hid.c" />
+    <ClCompile Include="F:\01_sdl\libs\SDL2-2.0.16\src\joystick\windows\SDL_dinputjoystick.c" />
+    <ClCompile Include="F:\01_sdl\libs\SDL2-2.0.16\src\joystick\windows\SDL_mmjoystick.c" />
+    <ClCompile Include="F:\01_sdl\libs\SDL2-2.0.16\src\joystick\windows\SDL_rawinputjoystick.c" />
+    <ClCompile Include="F:\01_sdl\libs\SDL2-2.0.16\src\joystick\windows\SDL_windows_gaming_input.c" />
+    <ClCompile Include="F:\01_sdl\libs\SDL2-2.0.16\src\joystick\windows\SDL_windowsjoystick.c" />
+    <ClCompile Include="F:\01_sdl\libs\SDL2-2.0.16\src\joystick\windows\SDL_xinputjoystick.c" />
+    <ClCompile Include="F:\01_sdl\libs\SDL2-2.0.16\src\haptic\windows\SDL_dinputhaptic.c" />
+    <ClCompile Include="F:\01_sdl\libs\SDL2-2.0.16\src\haptic\windows\SDL_windowshaptic.c" />
+    <ClCompile Include="F:\01_sdl\libs\SDL2-2.0.16\src\haptic\windows\SDL_xinputhaptic.c" />
+    <ResourceCompile Include="F:\01_sdl\libs\SDL2-2.0.16\src\main\windows\version.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="F:\01_sdl\build\ZERO_CHECK.vcxproj">
+      <Project>{25E6F4C1-8635-3C20-A565-E283D5201289}</Project>
+      <Name>ZERO_CHECK</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

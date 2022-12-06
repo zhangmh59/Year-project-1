@@ -1,0 +1,11 @@
+F:/01_sdl/build/CMakeFiles/01_sdl.dir
+F:/01_sdl/build/CMakeFiles/run.dir
+F:/01_sdl/build/CMakeFiles/INSTALL.dir
+F:/01_sdl/build/CMakeFiles/ALL_BUILD.dir
+F:/01_sdl/build/CMakeFiles/ZERO_CHECK.dir
+F:/01_sdl/build/libs/SDL2-2.0.16/CMakeFiles/SDL2main.dir
+F:/01_sdl/build/libs/SDL2-2.0.16/CMakeFiles/SDL2.dir
+F:/01_sdl/build/libs/SDL2-2.0.16/CMakeFiles/SDL2-static.dir
+F:/01_sdl/build/libs/SDL2-2.0.16/CMakeFiles/uninstall.dir
+F:/01_sdl/build/libs/SDL2-2.0.16/CMakeFiles/INSTALL.dir
+F:/01_sdl/build/libs/SDL2-2.0.16/CMakeFiles/ALL_BUILD.dir

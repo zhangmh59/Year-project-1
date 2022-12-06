@@ -1,0 +1,192 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ResolveNugetPackages>false</ResolveNugetPackages>
+  </PropertyGroup>
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="MinSizeRel|x64">
+      <Configuration>MinSizeRel</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="RelWithDebInfo|x64">
+      <Configuration>RelWithDebInfo</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{E29A6E0C-2459-3F9D-8ACD-21A3262CF44C}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <WindowsTargetPlatformVersion>10.0.22621.0</WindowsTargetPlatformVersion>
+    <Platform>x64</Platform>
+    <ProjectName>ALL_BUILD</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Midl>
+      <AdditionalIncludeDirectories>F:\01_sdl\build\libs\SDL2-2.0.16\include;F:\01_sdl\libs\SDL2-2.0.16\include;F:\01_sdl\libs\SDL2-2.0.16\src\video\khronos;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Midl>
+      <AdditionalIncludeDirectories>F:\01_sdl\build\libs\SDL2-2.0.16\include;F:\01_sdl\libs\SDL2-2.0.16\include;F:\01_sdl\libs\SDL2-2.0.16\src\video\khronos;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
+    <Midl>
+      <AdditionalIncludeDirectories>F:\01_sdl\build\libs\SDL2-2.0.16\include;F:\01_sdl\libs\SDL2-2.0.16\include;F:\01_sdl\libs\SDL2-2.0.16\src\video\khronos;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
+    <Midl>
+      <AdditionalIncludeDirectories>F:\01_sdl\build\libs\SDL2-2.0.16\include;F:\01_sdl\libs\SDL2-2.0.16\include;F:\01_sdl\libs\SDL2-2.0.16\src\video\khronos;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="F:\01_sdl\libs\SDL2-2.0.16\CMakeLists.txt">
+      <UseUtf8Encoding>Always</UseUtf8Encoding>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule F:/01_sdl/libs/SDL2-2.0.16/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+C:\DownloadSoftware\CMake\bin\cmake.exe -SF:/01_sdl -BF:/01_sdl/build --check-stamp-file F:/01_sdl/build/libs/SDL2-2.0.16/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\BasicConfigVersion-AnyNewerVersion.cmake.in;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\CMakeCheckCompilerFlagCommonPatterns.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\CMakeDependentOption.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\CMakePackageConfigHelpers.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\CheckCCompilerFlag.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\CheckCSourceCompiles.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\CheckCSourceRuns.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\CheckCXXCompilerFlag.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\CheckCXXSourceCompiles.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\CheckIncludeFile.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\CheckIncludeFileCXX.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\CheckIncludeFiles.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\CheckLibraryExists.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\CheckStructHasMember.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\CheckSymbolExists.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\CheckTypeSize.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\FindPackageHandleStandardArgs.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\FindPackageMessage.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\FindPkgConfig.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\GNUInstallDirs.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\Internal\CheckCompilerFlag.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\Internal\CheckFlagCommonConfig.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\Internal\CheckSourceCompiles.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\Internal\CheckSourceRuns.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\WriteBasicConfigVersionFile.cmake;F:\01_sdl\libs\SDL2-2.0.16\cmake\macros.cmake;F:\01_sdl\libs\SDL2-2.0.16\cmake\sdlchecks.cmake;F:\01_sdl\libs\SDL2-2.0.16\cmake_uninstall.cmake.in;F:\01_sdl\libs\SDL2-2.0.16\include\SDL_config.h.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">F:\01_sdl\build\libs\SDL2-2.0.16\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule F:/01_sdl/libs/SDL2-2.0.16/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+C:\DownloadSoftware\CMake\bin\cmake.exe -SF:/01_sdl -BF:/01_sdl/build --check-stamp-file F:/01_sdl/build/libs/SDL2-2.0.16/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\BasicConfigVersion-AnyNewerVersion.cmake.in;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\CMakeCheckCompilerFlagCommonPatterns.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\CMakeDependentOption.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\CMakePackageConfigHelpers.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\CheckCCompilerFlag.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\CheckCSourceCompiles.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\CheckCSourceRuns.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\CheckCXXCompilerFlag.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\CheckCXXSourceCompiles.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\CheckIncludeFile.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\CheckIncludeFileCXX.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\CheckIncludeFiles.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\CheckLibraryExists.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\CheckStructHasMember.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\CheckSymbolExists.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\CheckTypeSize.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\FindPackageHandleStandardArgs.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\FindPackageMessage.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\FindPkgConfig.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\GNUInstallDirs.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\Internal\CheckCompilerFlag.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\Internal\CheckFlagCommonConfig.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\Internal\CheckSourceCompiles.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\Internal\CheckSourceRuns.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\WriteBasicConfigVersionFile.cmake;F:\01_sdl\libs\SDL2-2.0.16\cmake\macros.cmake;F:\01_sdl\libs\SDL2-2.0.16\cmake\sdlchecks.cmake;F:\01_sdl\libs\SDL2-2.0.16\cmake_uninstall.cmake.in;F:\01_sdl\libs\SDL2-2.0.16\include\SDL_config.h.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">F:\01_sdl\build\libs\SDL2-2.0.16\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule F:/01_sdl/libs/SDL2-2.0.16/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+C:\DownloadSoftware\CMake\bin\cmake.exe -SF:/01_sdl -BF:/01_sdl/build --check-stamp-file F:/01_sdl/build/libs/SDL2-2.0.16/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\BasicConfigVersion-AnyNewerVersion.cmake.in;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\CMakeCheckCompilerFlagCommonPatterns.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\CMakeDependentOption.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\CMakePackageConfigHelpers.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\CheckCCompilerFlag.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\CheckCSourceCompiles.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\CheckCSourceRuns.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\CheckCXXCompilerFlag.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\CheckCXXSourceCompiles.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\CheckIncludeFile.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\CheckIncludeFileCXX.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\CheckIncludeFiles.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\CheckLibraryExists.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\CheckStructHasMember.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\CheckSymbolExists.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\CheckTypeSize.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\FindPackageHandleStandardArgs.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\FindPackageMessage.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\FindPkgConfig.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\GNUInstallDirs.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\Internal\CheckCompilerFlag.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\Internal\CheckFlagCommonConfig.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\Internal\CheckSourceCompiles.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\Internal\CheckSourceRuns.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\WriteBasicConfigVersionFile.cmake;F:\01_sdl\libs\SDL2-2.0.16\cmake\macros.cmake;F:\01_sdl\libs\SDL2-2.0.16\cmake\sdlchecks.cmake;F:\01_sdl\libs\SDL2-2.0.16\cmake_uninstall.cmake.in;F:\01_sdl\libs\SDL2-2.0.16\include\SDL_config.h.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">F:\01_sdl\build\libs\SDL2-2.0.16\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule F:/01_sdl/libs/SDL2-2.0.16/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+C:\DownloadSoftware\CMake\bin\cmake.exe -SF:/01_sdl -BF:/01_sdl/build --check-stamp-file F:/01_sdl/build/libs/SDL2-2.0.16/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\BasicConfigVersion-AnyNewerVersion.cmake.in;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\CMakeCheckCompilerFlagCommonPatterns.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\CMakeDependentOption.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\CMakePackageConfigHelpers.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\CheckCCompilerFlag.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\CheckCSourceCompiles.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\CheckCSourceRuns.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\CheckCXXCompilerFlag.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\CheckCXXSourceCompiles.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\CheckIncludeFile.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\CheckIncludeFileCXX.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\CheckIncludeFiles.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\CheckLibraryExists.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\CheckStructHasMember.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\CheckSymbolExists.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\CheckTypeSize.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\FindPackageHandleStandardArgs.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\FindPackageMessage.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\FindPkgConfig.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\GNUInstallDirs.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\Internal\CheckCompilerFlag.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\Internal\CheckFlagCommonConfig.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\Internal\CheckSourceCompiles.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\Internal\CheckSourceRuns.cmake;C:\DownloadSoftware\CMake\share\cmake-3.25\Modules\WriteBasicConfigVersionFile.cmake;F:\01_sdl\libs\SDL2-2.0.16\cmake\macros.cmake;F:\01_sdl\libs\SDL2-2.0.16\cmake\sdlchecks.cmake;F:\01_sdl\libs\SDL2-2.0.16\cmake_uninstall.cmake.in;F:\01_sdl\libs\SDL2-2.0.16\include\SDL_config.h.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">F:\01_sdl\build\libs\SDL2-2.0.16\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="F:\01_sdl\build\ZERO_CHECK.vcxproj">
+      <Project>{25E6F4C1-8635-3C20-A565-E283D5201289}</Project>
+      <Name>ZERO_CHECK</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="F:\01_sdl\build\libs\SDL2-2.0.16\SDL2.vcxproj">
+      <Project>{F263DECD-7AD6-35C4-80DA-111C4957C41C}</Project>
+      <Name>SDL2</Name>
+    </ProjectReference>
+    <ProjectReference Include="F:\01_sdl\build\libs\SDL2-2.0.16\SDL2-static.vcxproj">
+      <Project>{10CAABE3-10EC-3CA7-95FD-E85A4F935281}</Project>
+      <Name>SDL2-static</Name>
+    </ProjectReference>
+    <ProjectReference Include="F:\01_sdl\build\libs\SDL2-2.0.16\SDL2main.vcxproj">
+      <Project>{86C1AF92-A61F-3D12-B04B-0720309861B1}</Project>
+      <Name>SDL2main</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
