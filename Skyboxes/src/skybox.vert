@@ -14,6 +14,6 @@ void main()
     gl_Position = pos.xyww;
 
     //flip the z axis due to the different coordinate systems (left hand vs right hand)
-    texCoords = vec3(aPos.x, aPos.y, -aPos.z);
+    texCoords = vec3(aPos.x, aPos.y, aPos.z);
   
 }    

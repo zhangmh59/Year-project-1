@@ -6,6 +6,10 @@ namespace fs = std::filesystem;
 const unsigned int width = 1500;
 const unsigned int height = 1500;
 
+#ifndef CMAKE_ROOT_DIR
+#define CMAKE_ROOT_DIR "."
+#endif
+
 
 
 float skyboxVertices[] =
@@ -44,9 +48,9 @@ unsigned int skyboxIndices[] =
 };
 
 
-
 int main()
 {
+
 	// Initialize GLFW
 	glfwInit();
 
@@ -79,10 +83,13 @@ int main()
 
 
 
-
 	// Generates Shader objects
-	Shader shaderProgram("default.vert", "default.frag");
-	Shader skyboxShader ("skybox.vert", "skybox.frag");
+	Shader shaderProgram(
+      std::string(std::string(CMAKE_ROOT_DIR)+"/src/default.vert").c_str(),
+      std::string(std::string(CMAKE_ROOT_DIR)+"/src/default.frag").c_str());
+	Shader skyboxShader (
+      std::string(std::string(CMAKE_ROOT_DIR)+"/src/skybox.vert").c_str(), 
+      std::string(std::string(CMAKE_ROOT_DIR)+"/src/skybox.frag").c_str());
 
 	// Take care of all the light related things
 	glm::vec4 lightColor = glm::vec4(1.0f, 1.0f, 1.0f, 1.0f);
@@ -111,10 +118,13 @@ int main()
 
 
 	std::string parentDir = fs::current_path().string();
+  parentDir = CMAKE_ROOT_DIR;
+  std::cerr << parentDir << std::endl;
 	std::string modelPath = "/Resources/Skyboxes/models/airplane/scene.gltf";
 	
 	// Load in models
 	Model model((parentDir + modelPath).c_str());
+
 
 
 

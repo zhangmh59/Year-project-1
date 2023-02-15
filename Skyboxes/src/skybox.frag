@@ -6,6 +6,7 @@ in vec3 texCoords;          // direction vector representing a 3D texture coordi
 uniform samplerCube skybox;
 
 void main()
-{    
-    FragColor = texture(skybox, texCoords);
+{
+    
+    FragColor = texture(skybox, vec3(texCoords.x,-texCoords.y,texCoords.z));
 }
