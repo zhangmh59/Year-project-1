@@ -1,5 +1,5 @@
 #include<filesystem>
-namespace fs = std::filesystem;
+
 #include"Model.h"
 
 
@@ -117,7 +117,7 @@ int main()
 
 
 
-	std::string parentDir = fs::current_path().string();
+	std::string parentDir;
   parentDir = CMAKE_ROOT_DIR;
   std::cerr << parentDir << std::endl;
 	std::string modelPath = "/Resources/Skyboxes/models/airplane/scene.gltf";
