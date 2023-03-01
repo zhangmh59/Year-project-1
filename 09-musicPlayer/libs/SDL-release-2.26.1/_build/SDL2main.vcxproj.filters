@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="D:\1-Downsoftware\9_SDL_2.26.1\SDL-release-2.26.1\src\main\windows\SDL_windows_main.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="D:\1-Downsoftware\9_SDL_2.26.1\SDL-release-2.26.1\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{2DEC6EFB-D002-39BA-8113-98E1E328F907}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

@@ -1,7 +1,12 @@
 #include<filesystem>
 
 #include"Model.h"
+#include <chrono>   // Provides high-precision clocks and time points
+#include<SDL.h>
+#include <GLFW/glfw3.h>
+#include"audio.h"
 
+#undef main
 
 const unsigned int width = 1500;
 const unsigned int height = 1500;
@@ -9,7 +14,6 @@ const unsigned int height = 1500;
 #ifndef CMAKE_ROOT_DIR
 #define CMAKE_ROOT_DIR "."
 #endif
-
 
 
 float skyboxVertices[] =
@@ -48,9 +52,26 @@ unsigned int skyboxIndices[] =
 };
 
 
+//// Menu callback function
+//void menu_callback(int id) {
+//	switch (id) {
+//	case 1:
+//		SDL_PauseAudio(0); // Play
+//		break;
+//	case 2:
+//		SDL_PauseAudio(1); // Pause
+//		break;
+//	case 3:
+//		SDL_ClearQueuedAudio(1); // Stop
+//		SDL_PauseAudio(1);
+//		break;
+//	}
+//}
+
 int main()
 {
 
+	SDL_Init(SDL_INIT_EVERYTHING);
 	// Initialize GLFW
 	glfwInit();
 
@@ -61,7 +82,7 @@ int main()
 	// Tell GLFW we are using the CORE profile
 	// So that means we only have the modern functions
 	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
-
+	
 	// Create a GLFWwindow object of 1500 by 1500 pixels
 	GLFWwindow* window = glfwCreateWindow(width, height, "OpenGL", NULL, NULL);
 	// Error check if the window fails to create
@@ -80,6 +101,90 @@ int main()
 	// In this case the viewport goes from x = 0, y = 0, to x = 1500, y = 1500
 	glViewport(0, 0, width, height);
 
+
+
+	// Create menu window
+	//GLFWwindow* menuWindow = glfwCreateWindow(200, 200, "Menu", NULL, NULL);
+	//if (!menuWindow) {
+	//	glfwTerminate();
+	//	return -1;
+	//}
+	//// Create menu bar
+	////GLFWmenu* menuBar = glfwCreateMenu();
+	//glfwSetMenuCallback(menuWindow, menu_callback);
+
+	//// Create menu items
+	//glfwAddMenuItem(menuWindow, "Play", 1);
+	//glfwAddMenuItem(menuWindow, "Pause", 2);
+	//glfwAddMenuItem(menuWindow, "Stop", 3);
+
+	//// Attach menu bar to window
+	//glfwSetMenuBar(window, menuWindow);
+
+
+	 /* Initialize only SDL Audio on default device */
+	if (SDL_Init(SDL_INIT_AUDIO) < 0)
+	{
+		return 1;
+	}
+
+	/* Init Simple-SDL2-Audio */
+	initAudio();
+
+	/* Play music and a sound */
+	playMusic("music/highlands.wav", SDL_MIX_MAXVOLUME);
+	playSound("sounds/door1.wav", SDL_MIX_MAXVOLUME / 2);
+
+	/* While using delay for showcase, don't actually do this in your project */
+	SDL_Delay(1000);
+
+	/* Override music, play another sound */
+	playMusic("music/road.wav", SDL_MIX_MAXVOLUME);
+	SDL_Delay(1000);
+
+	/* Pause audio test */
+	pauseAudio();
+	SDL_Delay(1000);
+	unpauseAudio();
+
+	playSound("sounds/door2.wav", SDL_MIX_MAXVOLUME / 2);
+	SDL_Delay(2000);
+
+	/* Caching sound example, create, play from Memory, clear */
+
+	Audio* sound = createAudio("sounds/door1.wav", 0, SDL_MIX_MAXVOLUME / 2);
+	playSoundFromMemory(sound, SDL_MIX_MAXVOLUME);
+	SDL_Delay(2000);
+
+	Audio* music = createAudio("music/highlands.wav", 1, SDL_MIX_MAXVOLUME);
+	playMusicFromMemory(music, SDL_MIX_MAXVOLUME);
+	SDL_Delay(2000);
+
+	/* End Simple-SDL2-Audio */
+	endAudio();
+
+	/* Important to free audio after ending Simple-SDL2-Audio because they might be referenced still */
+	freeAudio(sound);
+	freeAudio(music);
+
+	SDL_Quit();
+	//// Load music file
+	//SDL_AudioSpec wavSpec;
+	//Uint32 wavLength;
+	//Uint8* wavBuffer;
+
+	//if (SDL_LoadWAV("highlands.wav", &wavSpec, &wavBuffer, &wavLength) == NULL) {
+	//	printf("SDL could not load WAV file! SDL_Error: %s\n", SDL_GetError());
+	//}
+
+	//// Open audio device
+	//if (SDL_OpenAudio(&wavSpec, NULL) < 0) {
+	//	printf("SDL could not open audio device! SDL_Error: %s\n", SDL_GetError());
+	//}
+
+	//// Play music
+	//SDL_QueueAudio(1, wavBuffer, wavLength);
+	//SDL_PauseAudio(0);
 
 
 
@@ -118,22 +223,13 @@ int main()
 
 
 	std::string parentDir;
-  parentDir = CMAKE_ROOT_DIR;
-  std::cerr << parentDir << std::endl;
+    parentDir = CMAKE_ROOT_DIR;
+    std::cerr << parentDir << std::endl;
 	std::string modelPath = "/Resources/Skyboxes/models/airplane/scene.gltf";
 	
 	// Load in models
 	Model model((parentDir + modelPath).c_str());
 
-
-
-
-	// Variables to create periodic event for FPS displaying
-	double prevTime = 0.0;
-	double crntTime = 0.0;
-	double timeDiff;
-	// Keeps track of the amount of frames in timeDiff
-	unsigned int counter = 0;
 
 	//disable VSync 
 	//glfwSwapInterval(0);
@@ -216,37 +312,25 @@ int main()
 	}
 
 
-
+	// initialize lastTime variable
+	auto lastTime = std::chrono::high_resolution_clock::now();
 	// Main while loop
 	while (!glfwWindowShouldClose(window))
 	{
-		// Updates counter and times
-		crntTime = glfwGetTime();
-		timeDiff = crntTime - prevTime;
-		counter++;
-
-		if (timeDiff >= 1.0 / 30.0)
-		{
-			// Creates new title
-			std::string FPS = std::to_string((1.0 / timeDiff) * counter);
-			std::string ms = std::to_string((timeDiff / counter) * 1000);
-			std::string newTitle = "OpenGL - " + FPS + "FPS / " + ms + "ms";
-			glfwSetWindowTitle(window, newTitle.c_str());
-
-			// Resets times and counter
-			prevTime = crntTime;
-			counter = 0;
-
-			// Use this if you have disabled VSync
-			camera.Inputs(window);
-		}
+		//double last;
+		
+		auto currentTime = std::chrono::high_resolution_clock::now();
+		float deltaTime = std::chrono::duration_cast<std::chrono::milliseconds>(currentTime - lastTime).count() / 1000.0f;
+		lastTime = currentTime;
 
 		// Specify the color of the background
 		glClearColor(0.07f, 0.13f, 0.17f, 1.0f);
 		// Clean the back buffer and depth buffer
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-		// Handles camera inputs 
+		camera.speed = 5.0f * deltaTime;
+		//camera.sensitivity = 100.0f * deltaTime;
+		//Handles camera inputs 
 		camera.Inputs(window);
 		// Updates and exports the camera matrix to the Vertex Shader
 		camera.updateMatrix(45.0f, 0.1f, 100.0f);
@@ -289,6 +373,10 @@ int main()
 
 	shaderProgram.Delete();
 	skyboxShader.Delete();
+	//SDL_CloseAudio();
+	//SDL_FreeWAV(wavBuffer);
+	SDL_Quit();
+	//glfwDestroyWindow(menuWindow);
 	// Delete window before ending the program
 	glfwDestroyWindow(window);
 	// Terminate GLFW before ending the program

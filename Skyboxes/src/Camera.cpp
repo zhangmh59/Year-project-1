@@ -51,14 +51,14 @@ void Camera::Inputs(GLFWwindow* window)
 	{
 		Position += speed * glm::normalize(glm::cross(Orientation, Up));
 	}
-	//if (glfwGetKey(window, GLFW_KEY_SPACE) == GLFW_PRESS)
-	//{
-	//	Position += speed * Up;
-	//}
-	//if (glfwGetKey(window, GLFW_KEY_LEFT_CONTROL) == GLFW_PRESS)
-	//{
-	//	Position += speed * -Up;
-	//}
+	if (glfwGetKey(window, GLFW_KEY_SPACE) == GLFW_PRESS)
+	{
+		Position += speed * Up;
+	}
+	if (glfwGetKey(window, GLFW_KEY_LEFT_CONTROL) == GLFW_PRESS)
+	{
+		Position += speed * -Up;
+	}
 	//if (glfwGetKey(window, GLFW_KEY_LEFT_SHIFT) == GLFW_PRESS)
 	//{
 	//	speed = 0.4f;
@@ -88,7 +88,7 @@ void Camera::Inputs(GLFWwindow* window)
 		// Fetches the coordinates of the cursor
 		glfwGetCursorPos(window, &mouseX, &mouseY);
 
-		// Normalizes and shifts the coordinates of the cursor such that they begin in the middle of the screen
+		// Normalizes and shifts the coordinates of the cursor so that they begin in the middle of the screen
 		// and then "transforms" them into degrees 
 		float rotX = sensitivity * (float)(mouseY - (height / 2)) / height;
 		float rotY = sensitivity * (float)(mouseX - (width / 2)) / width;
