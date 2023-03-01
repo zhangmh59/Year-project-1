@@ -6,6 +6,11 @@
 #include <GLFW/glfw3.h>
 #include"audio.h"
 
+#if _WIN32
+#include<windows.h>
+#endif
+
+
 #undef main
 
 const unsigned int width = 1500;
@@ -71,6 +76,10 @@ unsigned int skyboxIndices[] =
 int main()
 {
 
+  #if _WIN32
+  SetEnvironmentVariable("SDL_AUDIODRIVER","directsound");
+  #endif
+
 	SDL_Init(SDL_INIT_EVERYTHING);
 	// Initialize GLFW
 	glfwInit();
@@ -132,14 +141,15 @@ int main()
 	initAudio();
 
 	/* Play music and a sound */
-	playMusic("music/highlands.wav", SDL_MIX_MAXVOLUME);
-	playSound("sounds/door1.wav", SDL_MIX_MAXVOLUME / 2);
+	playMusic(CMAKE_ROOT_DIR "/music/highlands.wav", SDL_MIX_MAXVOLUME);
+	playSound(CMAKE_ROOT_DIR "/sounds/door1.wav", SDL_MIX_MAXVOLUME / 2);
 
+#if 0
 	/* While using delay for showcase, don't actually do this in your project */
 	SDL_Delay(1000);
 
 	/* Override music, play another sound */
-	playMusic("music/road.wav", SDL_MIX_MAXVOLUME);
+	playMusic(CMAKE_ROOT_DIR "/music/road.wav", SDL_MIX_MAXVOLUME);
 	SDL_Delay(1000);
 
 	/* Pause audio test */
@@ -147,16 +157,16 @@ int main()
 	SDL_Delay(1000);
 	unpauseAudio();
 
-	playSound("sounds/door2.wav", SDL_MIX_MAXVOLUME / 2);
+	playSound(CMAKE_ROOT_DIR "/sounds/door2.wav", SDL_MIX_MAXVOLUME / 2);
 	SDL_Delay(2000);
 
 	/* Caching sound example, create, play from Memory, clear */
 
-	Audio* sound = createAudio("sounds/door1.wav", 0, SDL_MIX_MAXVOLUME / 2);
+	Audio* sound = createAudio(CMAKE_ROOT_DIR "/sounds/door1.wav", 0, SDL_MIX_MAXVOLUME / 2);
 	playSoundFromMemory(sound, SDL_MIX_MAXVOLUME);
 	SDL_Delay(2000);
 
-	Audio* music = createAudio("music/highlands.wav", 1, SDL_MIX_MAXVOLUME);
+	Audio* music = createAudio(CMAKE_ROOT_DIR "/music/highlands.wav", 1, SDL_MIX_MAXVOLUME);
 	playMusicFromMemory(music, SDL_MIX_MAXVOLUME);
 	SDL_Delay(2000);
 
@@ -168,6 +178,7 @@ int main()
 	freeAudio(music);
 
 	SDL_Quit();
+#endif
 	//// Load music file
 	//SDL_AudioSpec wavSpec;
 	//Uint32 wavLength;
