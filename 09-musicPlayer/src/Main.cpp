@@ -331,7 +331,7 @@ int main()
 	SDL_CloseAudio();
 	SDL_FreeWAV(wavBuffer);
 	SDL_Quit();
-	glfwDestroyWindow(menuWindow);
+	
 	// Delete window before ending the program
 	glfwDestroyWindow(window);
 	// Terminate GLFW before ending the program

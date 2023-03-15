@@ -6,7 +6,7 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS 1 )
 
 add_subdirectory(libs/glfw-3.3.8)
 add_subdirectory(libs/SDL-release-2.26.1)
-add_subdirectory(libs/SDL2_mixer-2.6.3)
+#add_subdirectory(libs/SDL_mixer-release-2.6.3)
 
 add_library(glm INTERFACE)
 target_include_directories(glm INTERFACE libs/glm)
@@ -35,7 +35,7 @@ add_executable(${PROJECT_NAME}
   )
 
 #find_package(SDL2_mixer REQUIRED)
-target_link_libraries(${PROJECT_NAME} glm glfw SDL2-static SDL2::SDL2main SDL2::Mixer)
+target_link_libraries(${PROJECT_NAME} glm glfw SDL2::SDL2main SDL2::SDL2)# SDL2_mixer)
 
 target_include_directories(${PROJECT_NAME} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/src)
 target_include_directories(${PROJECT_NAME} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/libs)
