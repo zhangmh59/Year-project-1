@@ -1,6 +1,6 @@
 # Year-project-1
 
-THe code will be use for Year-project from 06 
+The code will be use for Year-project from 06 
 
 06:Skyboxes with a simple music player using SDL, camera speed is modified using frame time, load a model with texture
 
