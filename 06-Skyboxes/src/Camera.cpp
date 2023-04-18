@@ -59,14 +59,28 @@ void Camera::Inputs(GLFWwindow* window)
 	{
 		Position += speed * -Up;
 	}
-	//if (glfwGetKey(window, GLFW_KEY_LEFT_SHIFT) == GLFW_PRESS)
-	//{
-	//	speed = 0.4f;
-	//}
-	//else if (glfwGetKey(window, GLFW_KEY_LEFT_SHIFT) == GLFW_RELEASE)
-	//{
-	//	speed = 0.1f;
-	//}
+
+	if (glfwGetKey(window, GLFW_KEY_J) == GLFW_PRESS)
+	{
+		//speed = 0.4f;
+		musicPlayer = 1;
+		//musicPause = 0;
+
+	}
+	if (glfwGetKey(window, GLFW_KEY_K) == GLFW_PRESS)
+	{
+		//speed = 0.1f;
+		musicPlayer = 0;
+		unpause = 0;
+		musicPause = 1;
+	}
+	if (glfwGetKey(window, GLFW_KEY_L) == GLFW_PRESS)
+	{
+		//speed = 0.1f;
+		//musicPlayer = 0;
+		musicPause = 0;
+		unpause = 1;
+	}
 
 
 	// Handles mouse inputs

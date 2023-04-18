@@ -109,64 +109,6 @@ int main()
 	/* Init Simple-SDL2-Audio */
 	initAudio();
 
-	/* Play music and a sound */
-	playMusic(CMAKE_ROOT_DIR "/music/highlands.wav", SDL_MIX_MAXVOLUME);
-	playSound(CMAKE_ROOT_DIR "/sounds/door1.wav", SDL_MIX_MAXVOLUME / 2);
-
-#if 0
-	/* While using delay for showcase, don't actually do this in your project */
-	SDL_Delay(1000);
-
-	/* Override music, play another sound */
-	playMusic(CMAKE_ROOT_DIR "/music/road.wav", SDL_MIX_MAXVOLUME);
-	SDL_Delay(1000);
-
-	/* Pause audio test */
-	pauseAudio();
-	SDL_Delay(1000);
-	unpauseAudio();
-
-	playSound(CMAKE_ROOT_DIR "/sounds/door2.wav", SDL_MIX_MAXVOLUME / 2);
-	SDL_Delay(2000);
-
-	/* Caching sound example, create, play from Memory, clear */
-
-	Audio* sound = createAudio(CMAKE_ROOT_DIR "/sounds/door1.wav", 0, SDL_MIX_MAXVOLUME / 2);
-	playSoundFromMemory(sound, SDL_MIX_MAXVOLUME);
-	SDL_Delay(2000);
-
-	Audio* music = createAudio(CMAKE_ROOT_DIR "/music/highlands.wav", 1, SDL_MIX_MAXVOLUME);
-	playMusicFromMemory(music, SDL_MIX_MAXVOLUME);
-	SDL_Delay(2000);
-
-	/* End Simple-SDL2-Audio */
-	endAudio();
-
-	/* Important to free audio after ending Simple-SDL2-Audio because they might be referenced still */
-	freeAudio(sound);
-	freeAudio(music);
-
-	SDL_Quit();
-#endif
-	//// Load music file
-	//SDL_AudioSpec wavSpec;
-	//Uint32 wavLength;
-	//Uint8* wavBuffer;
-
-	//if (SDL_LoadWAV("highlands.wav", &wavSpec, &wavBuffer, &wavLength) == NULL) {
-	//	printf("SDL could not load WAV file! SDL_Error: %s\n", SDL_GetError());
-	//}
-
-	//// Open audio device
-	//if (SDL_OpenAudio(&wavSpec, NULL) < 0) {
-	//	printf("SDL could not open audio device! SDL_Error: %s\n", SDL_GetError());
-	//}
-
-	//// Play music
-	//SDL_QueueAudio(1, wavBuffer, wavLength);
-	//SDL_PauseAudio(0);
-
-
 
 	// Generates Shader objects
 	Shader shaderProgram(
@@ -309,6 +251,10 @@ int main()
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 		camera.speed = 5.0f * deltaTime;
+		if (camera.musicPlayer)
+			playMusic(CMAKE_ROOT_DIR "/music/Always with me.wav", SDL_MIX_MAXVOLUME);
+		if (camera.musicPause) pauseAudio();
+		if (camera.unpause) unpauseAudio();
 		//camera.sensitivity = 100.0f * deltaTime;
 		//Handles camera inputs 
 		camera.Inputs(window);

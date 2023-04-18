@@ -27,6 +27,10 @@ public:
 	int width;
 	int height;
 
+	int musicPlayer = 0;
+	int musicPause = 0;
+	int unpause = 0;
+
 	// Adjust the speed of the camera and it's sensitivity when looking around
 	float speed = 0.1f;
 	float sensitivity = 100.0f;
