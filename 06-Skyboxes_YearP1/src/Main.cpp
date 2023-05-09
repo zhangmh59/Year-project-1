@@ -1,10 +1,14 @@
 #include<filesystem>
 #include<iostream>
 #include<vector>
-//#include"Model.h"
 #include <chrono>   // Provides high-precision clocks and time points
 #include<SDL.h>
+//#include<btBulletDynamicsCommon.h>
+
+
+#define GLFW_INCLUDE_NONE
 #include <GLFW/glfw3.h>
+
 #include"audio.h"
 
 
@@ -180,26 +184,32 @@ public:
 		Node res;
 		res.mesh = root.mesh;
 		if (root.matrix.size() == 16) {
+			//this code is to flip down
+			//glm::mat4 flipZtoY = glm::rotate(glm::mat4(1.0f), glm::radians(-90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
+			//res.modelMatrix = flipZtoY * res.modelMatrix;
 			for (int i = 0;i < 16;++i)
 				res.modelMatrix[i / 4][i % 4] = (float)root.matrix[i];
 		}
 		else {
 			if (root.translation.size() == 3) {
 				auto* p = root.translation.data();
-				res.modelMatrix = res.modelMatrix * glm::translate(glm::mat4(1.f), glm::vec3(p[0], p[1], p[2]));
+				res.modelMatrix = res.modelMatrix * glm::translate(glm::mat4(1.f), glm::vec3(-p[0], p[2], p[1]));
 			}
 			if (root.rotation.size() == 4) {
+				//auto* p = root.rotation.data();
+				//glm::quat q((float)p[3], (float)p[0], (float)p[1], (float)p[2]);
+				//res.modelMatrix = res.modelMatrix * glm::mat4_cast(q);
 				auto* p = root.rotation.data();
 				glm::quat q;
-				q[0] = (float)p[0];
-				q[1] = (float)p[1];
-				q[2] = (float)p[2];
+				q[0] = (float)-p[0];
+				q[1] = (float)p[2];
+				q[2] = (float)p[1];
 				q[3] = (float)p[3];
 				res.modelMatrix = res.modelMatrix * glm::toMat4(q);
 			}
 			if (root.scale.size() == 3) {
 				auto* p = root.scale.data();
-				res.modelMatrix = res.modelMatrix * glm::scale(glm::mat4(1.f), glm::vec3(p[0], p[1], p[2]));
+				res.modelMatrix = res.modelMatrix * glm::scale(glm::mat4(1.f), glm::vec3(-p[0], p[2], p[1]));
 			}
 		}
 		for (auto c : root.children)
@@ -231,9 +241,15 @@ public:
 
 		}
 
+		glm::mat4 newModelMatrix = modelMatrix * node.modelMatrix;
 		for (auto const& n : node.children) {
-			drawNode(n, prg, modelMatrix * node.modelMatrix);
+			drawNode(n, prg, newModelMatrix);
 		}
+
+
+		//for (auto const& n : node.children) {
+		//	drawNode(n, prg, modelMatrix * node.modelMatrix);
+		//}
 
 	}
 	void draw(glm::mat4 const& proj, glm::mat4 const& view, ge::gl::Program* prg) {
@@ -283,6 +299,7 @@ std::string const source = R".(
 #ifdef VERTEX_SHADER
 uniform mat4 view  = mat4(1.f);
 uniform mat4 proj  = mat4(1.f);
+uniform mat4 mvp  = mat4(1.f);
 uniform mat4 model = mat4(1.f);
 
 layout(location = 0)in vec3 position;
@@ -297,8 +314,9 @@ void main(){
   vCoord  = texCoord;
   vNormal = normal  ;
   vPosition = vec3(model*vec4(position,1.f));
-  vCamPosition = vec3(inverse(view)*vec4(0,0,0,1));
-  gl_Position = proj*view*model*vec4(position,1.f);
+  //vCamPosition = vec3(inverse(view)*vec4(0,0,0,1));
+  vCamPosition = vec3(1);
+  gl_Position = mvp*model*vec4(position,1.f);
 }
 #endif
 
@@ -321,7 +339,7 @@ uniform int       useTexture   = 0;
 layout(location=0)out vec4 fColor;
 void main(){
   vec3 diffuseColor = vec3(0.3);
-  fColor = vec4(vNormal,1);
+  //fColor = vec4(vNormal,1);
 
   if(useTexture == 1)
     diffuseColor = texture(diffuseTexture,vCoord).rgb;
@@ -400,9 +418,9 @@ int main()
 {
 
 	//just needed in Windows
-    #if _WIN32
-    SetEnvironmentVariable("SDL_AUDIODRIVER","directsound");
-    #endif
+#if _WIN32
+	SetEnvironmentVariable("SDL_AUDIODRIVER", "directsound");
+#endif
 
 	//SDL_Init(SDL_INIT_EVERYTHING);
 	// Initialize GLFW
@@ -415,7 +433,7 @@ int main()
 	// Tell GLFW we are using the CORE profile
 	// So that means we only have the modern functions
 	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
-	
+
 	// Create a GLFWwindow object of 1500 by 1500 pixels
 	GLFWwindow* window = glfwCreateWindow(width, height, "OpenGL", NULL, NULL);
 	// Error check if the window fails to create
@@ -427,16 +445,13 @@ int main()
 	}
 	// Introduce the window into the current context
 	glfwMakeContextCurrent(window);
-
-	//Load GLAD so it configures OpenGL
-	//gladLoadGL();
-	// Specify the viewport of OpenGL in the Window
+	ge::gl::init();
 	// In this case the viewport goes from x = 0, y = 0, to x = 1500, y = 1500
-	glViewport(0, 0, width, height);
+	ge::gl::glViewport(0, 0, width, height);
 
 
 
-	 /* Initialize only SDL Audio on default device */
+	/* Initialize only SDL Audio on default device */
 	if (SDL_Init(SDL_INIT_AUDIO) < 0)
 	{
 		return 1;
@@ -445,35 +460,25 @@ int main()
 	/* Init Simple-SDL2-Audio */
 	initAudio();
 
-
+	/*
 	// Generates Shader objects
 	ShaderC shaderProgram(
-      std::string(std::string(CMAKE_ROOT_DIR)+"/src/default.vert").c_str(),
-      std::string(std::string(CMAKE_ROOT_DIR)+"/src/default.frag").c_str());
-	ShaderC skyboxShader (
-      std::string(std::string(CMAKE_ROOT_DIR)+"/src/skybox.vert").c_str(), 
-      std::string(std::string(CMAKE_ROOT_DIR)+"/src/skybox.frag").c_str());
-
-	// Take care of all the light related things
-	glm::vec4 lightColor = glm::vec4(1.0f, 1.0f, 1.0f, 1.0f);
-	glm::vec3 lightPos   = glm::vec3(0.5f, 0.5f, 0.5f);
-
-	shaderProgram.Activate();
-	glUniform4f(glGetUniformLocation(shaderProgram.ID, "lightColor"), lightColor.x, lightColor.y, lightColor.z, lightColor.w);
-	glUniform3f(glGetUniformLocation(shaderProgram.ID, "lightPos"), lightPos.x, lightPos.y, lightPos.z);
-	skyboxShader.Activate();
-	glUniform1i(glGetUniformLocation(skyboxShader.ID, "skybox"), 0);
+	  std::string(std::string(CMAKE_ROOT_DIR)+"/src/default.vert").c_str(),
+	  std::string(std::string(CMAKE_ROOT_DIR)+"/src/default.frag").c_str());
+	*/
 
 
 
-	glEnable(GL_DEPTH_TEST);
+
+
+	ge::gl::glEnable(GL_DEPTH_TEST);
 
 	// Enables Cull Facing
-	glEnable(GL_CULL_FACE);
+	ge::gl::glEnable(GL_CULL_FACE);
 	// Keeps front faces
-	glCullFace(GL_FRONT);
+	ge::gl::glCullFace(GL_FRONT);
 	// Uses counter clock-wise standard
-	glFrontFace(GL_CCW);
+	ge::gl::glFrontFace(GL_CCW);
 
 	// Creates camera object
 	Camera camera(width, height, glm::vec3(0.0f, 0.0f, 2.0f));
@@ -481,17 +486,27 @@ int main()
 
 
 	std::string parentDir;
-    parentDir = CMAKE_ROOT_DIR;
-    //std::cerr << parentDir << std::endl;
+	parentDir = CMAKE_ROOT_DIR;
+	//std::cerr << parentDir << std::endl;
 	//std::string modelPath = "/Resources/Skyboxes/models/crow/scene.gltf";
-	
+
 	// Load in models
 	//Model model((parentDir + modelPath).c_str());
-	ge::gl::init();
+
 
 	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	auto model = GModel();
-	model.load(std::string(CMAKE_ROOT_DIR) + "/Resources/Skyboxes/models/house/firstFloor - Copy.gltf");
+	//model.load(std::string(CMAKE_ROOT_DIR) + "/Resources/Skyboxes/models/houseNT/house.gltf");
+	//model.load(std::string(CMAKE_ROOT_DIR) + "/Resources/Skyboxes/models/house002/firstTEXTURE.gltf");
+	model.load(std::string(CMAKE_ROOT_DIR) + "/Resources/Skyboxes/models/house/finalHouse.gltf");
+	/*
+	auto vsSrc1 = get_file_contents(CMAKE_ROOT_DIR"/src/default.vert");
+	auto fsSrc1 = get_file_contents(CMAKE_ROOT_DIR"/src/default.frag");
+	auto defaultVS = std::make_shared<Shader>(GL_VERTEX_SHADER, vsSrc1);
+	auto defaultFS = std::make_shared<Shader>(GL_FRAGMENT_SHADER, fsSrc1);
+	auto prg = std::make_shared<Program>(defaultVS, defaultFS);
+	*/
+
 	auto prg = std::make_shared<ge::gl::Program>(
 		std::make_shared<ge::gl::Shader>(GL_VERTEX_SHADER, "#version 460\n#define   VERTEX_SHADER\n" + source),
 		std::make_shared<ge::gl::Shader>(GL_FRAGMENT_SHADER, "#version 460\n#define FRAGMENT_SHADER\n" + phongLightingShader + source)
@@ -503,22 +518,21 @@ int main()
 	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 	// Create VAO, VBO, and EBO for the skybox
-	unsigned int skyboxVAO, skyboxVBO, skyboxEBO;
-	glGenVertexArrays(1, &skyboxVAO);
 
-	glGenBuffers(1, &skyboxVBO);
-	glGenBuffers(1, &skyboxEBO);
 
-	glBindVertexArray(skyboxVAO);
-	glBindBuffer(GL_ARRAY_BUFFER, skyboxVBO);
-	glBufferData(GL_ARRAY_BUFFER, sizeof(skyboxVertices), &skyboxVertices, GL_STATIC_DRAW);
-	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, skyboxEBO);
-	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(skyboxIndices), &skyboxIndices, GL_STATIC_DRAW);
-	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
-	glEnableVertexAttribArray(0);
-	glBindBuffer(GL_ARRAY_BUFFER, 0);
-	glBindVertexArray(0);
-	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
+	auto vsSrc = get_file_contents(CMAKE_ROOT_DIR"/src/skybox.vert");
+	auto fsSrc = get_file_contents(CMAKE_ROOT_DIR"/src/skybox.frag");
+	auto skyboxVS = std::make_shared<Shader>(GL_VERTEX_SHADER, vsSrc);
+	auto skyboxFS = std::make_shared<Shader>(GL_FRAGMENT_SHADER, fsSrc);
+	auto skyboxPRG = std::make_shared<Program>(skyboxVS, skyboxFS);
+
+	auto skyboxVBO = std::make_shared<Buffer>(sizeof(skyboxVertices), skyboxVertices);
+	auto skyboxEBO = std::make_shared<Buffer>(sizeof(skyboxIndices), skyboxIndices);
+	auto skyboxVAO = std::make_shared<VertexArray>();
+	skyboxVAO->addElementBuffer(skyboxEBO);
+	skyboxVAO->addAttrib(skyboxVBO, 0, 3, GL_FLOAT, sizeof(float) * 3, 0);
+
+
 
 
 	// All the faces of the cubemap 
@@ -534,13 +548,13 @@ int main()
 
 	// Creates the cubemap texture object
 	unsigned int cubemapTexture;
-	ge::gl::glGenTextures  (1, &cubemapTexture);
+	ge::gl::glGenTextures(1, &cubemapTexture);
 	ge::gl::glBindTexture(GL_TEXTURE_CUBE_MAP, cubemapTexture);
 
 	//Set the filtering and wrapping method of the texture
 	glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 	glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-	
+
 	glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
 	glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
 	glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_R, GL_CLAMP_TO_EDGE);
@@ -551,7 +565,7 @@ int main()
 	// Cycles through all the textures and attaches them to the cubemap object
 	for (unsigned int i = 0; i < 6; i++)
 	{
-		
+
 		data = stbi_load(facesCubemap[i].c_str(), &width, &height, &nrChannels, 0);
 		if (data)
 		{
@@ -585,7 +599,7 @@ int main()
 	while (!glfwWindowShouldClose(window))
 	{
 		//double last;
-		
+
 		auto currentTime = std::chrono::high_resolution_clock::now();
 		float deltaTime = std::chrono::duration_cast<std::chrono::milliseconds>(currentTime - lastTime).count() / 1000.0f;
 		lastTime = currentTime;
@@ -595,6 +609,8 @@ int main()
 		// Clean the back buffer and depth buffer
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
+		//Handles camera inputs 
+		//camera.Inputs(window);
 		camera.speed = 5.0f * deltaTime;
 		if (camera.musicPlayer)
 			playMusic(CMAKE_ROOT_DIR "/music/Always with me.wav", SDL_MIX_MAXVOLUME);
@@ -609,31 +625,27 @@ int main()
 
 		// Draw the normal model
 		//model.Draw(shaderProgram, camera);
-		
-
-
 		// Since the cubemap will always have a depth of 1.0, we need that equal sign so it doesn't get discarded
-		glDepthFunc(GL_LEQUAL);
+		//glDepthFunc(GL_LEQUAL);		
+		glDisable(GL_DEPTH_TEST);
 
-		skyboxShader.Activate();
-		glm::mat4 view = glm::mat4(1.0f);
-		glm::mat4 projection = glm::mat4(1.0f);
 
-		//Delete the translation part of the transformation matrix
-		view = glm::mat4(glm::mat3(glm::lookAt(camera.Position, camera.Position + camera.Orientation, camera.Up)));
-		projection = glm::perspective(glm::radians(45.0f), (float)width / height, 0.1f, 100.0f);
-		glUniformMatrix4fv(glGetUniformLocation(skyboxShader.ID, "view"), 1, GL_FALSE, glm::value_ptr(view));
-		glUniformMatrix4fv(glGetUniformLocation(skyboxShader.ID, "projection"), 1, GL_FALSE, glm::value_ptr(projection));
-
-		prg->set3fv("lightPosition", glm::value_ptr(lightPosition));
-		model.draw(projection, view, &*prg);
-
-		// Draws the cubemap as the last object 
-		glBindVertexArray(skyboxVAO);
+		skyboxPRG->use();
+		skyboxPRG->setMatrix4fv("mvp", glm::value_ptr(camera.cameraMatrix));
+		skyboxVAO->bind();
 		glActiveTexture(GL_TEXTURE0);
 		ge::gl::glBindTexture(GL_TEXTURE_CUBE_MAP, cubemapTexture);
+
 		ge::gl::glDrawElements(GL_TRIANGLES, 36, GL_UNSIGNED_INT, 0);
 		glBindVertexArray(0);
+		glEnable(GL_DEPTH_TEST);
+
+
+		//prg->set3fv("lightPosition", glm::value_ptr(lightPosition));
+		prg->setMatrix4fv("mvp", glm::value_ptr(camera.cameraMatrix));
+		//model.draw(camera.cameraMatrix, glm::mat4(1), &*prg);
+		model.draw(camera.projection, camera.view, &*prg);
+
 
 		// Switch back to the normal depth function
 		glDepthFunc(GL_LESS);
@@ -647,8 +659,7 @@ int main()
 
 
 
-	shaderProgram.Delete();
-	skyboxShader.Delete();
+	//shaderProgram.Delete();
 	//SDL_CloseAudio();
 	//SDL_FreeWAV(wavBuffer);
 	SDL_Quit();

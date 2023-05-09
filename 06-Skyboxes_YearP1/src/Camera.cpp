@@ -1,6 +1,6 @@
 #include"Camera.h"
 
-
+using namespace ge::gl;
 
 Camera::Camera(int width, int height, glm::vec3 position)
 {
@@ -11,9 +11,9 @@ Camera::Camera(int width, int height, glm::vec3 position)
 
 void Camera::updateMatrix(float FOVdeg, float nearPlane, float farPlane)
 {
-	// Initializes matrices since otherwise they will be the null matrix
-	glm::mat4 view = glm::mat4(1.0f);
-	glm::mat4 projection = glm::mat4(1.0f);
+	//// Initializes matrices since otherwise they will be the null matrix
+	//glm::mat4 view = glm::mat4(1.0f);
+	//glm::mat4 projection = glm::mat4(1.0f);
 
 	// Makes camera look in the right direction from the right position
 	view = glm::lookAt(Position, Position + Orientation, Up);
@@ -27,7 +27,7 @@ void Camera::updateMatrix(float FOVdeg, float nearPlane, float farPlane)
 void Camera::Matrix(ShaderC& shader, const char* uniform)
 {
 	// Exports camera matrix
-	glUniformMatrix4fv(glGetUniformLocation(shader.ID, uniform), 1, GL_FALSE, glm::value_ptr(cameraMatrix));
+	glUniformMatrix4fv(glGetUniformLocation(shader.ID, uniform), 1, GL_FALSE, glm::value_ptr(cameraMatrix));//glm::value_ptr()是一个GLM库中的函数，用于将GLM库中的矩阵类型转换为float类型数组。
 }
 
 

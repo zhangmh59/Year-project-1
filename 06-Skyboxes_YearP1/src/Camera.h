@@ -5,6 +5,7 @@
 #include<geGL/geGL.h>
 #include<geGL/StaticCalls.h>
 
+#define GLFW_INCLUDE_NONE
 #include<GLFW/glfw3.h>
 #include<glm/glm.hpp>
 #include<glm/gtc/matrix_transform.hpp>
@@ -22,6 +23,9 @@ public:
 	glm::vec3 Orientation = glm::vec3(0.0f, 0.0f, -1.0f);
 	glm::vec3 Up = glm::vec3(0.0f, 1.0f, 0.0f);
 	glm::mat4 cameraMatrix = glm::mat4(1.0f);
+	// Initializes matrices since otherwise they will be the null matrix
+	glm::mat4 view = glm::mat4(1.0f);
+	glm::mat4 projection = glm::mat4(1.0f);
 
 	// Prevents the camera from jumping around when first clicking left click
 	bool firstClick = true;

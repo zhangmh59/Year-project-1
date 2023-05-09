@@ -1,5 +1,9 @@
 cmake_minimum_required(VERSION 3.15)
 
+#this line has to appear before 'PROJECT' in order to be able to disable incremental linking
+#SET(MSVC_INCREMENTAL_DEFAULT ON)
+
+
 project(06-copyright_YP1)
 
 set(CMAKE_EXPORT_COMPILE_COMMANDS 1 ) 
@@ -7,6 +11,7 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS 1 )
 add_subdirectory(libs/glfw-3.3.8)
 add_subdirectory(libs/SDL-release-2.26.1)
 add_subdirectory(libs/geGL)
+add_subdirectory(libs/bullet3-master)
 add_library(glm INTERFACE)
 target_include_directories(glm INTERFACE libs/glm)
 
@@ -31,8 +36,8 @@ add_executable(${PROJECT_NAME}
   src/Main.cpp
   #src/Mesh.cpp
   #src/Mesh.h
-  #src/Model.cpp
-  #src/Model.h
+  src/GModel.cpp
+  src/GModel.h
   src/shaderClass.cpp
   src/shaderClass.h
   src/stb.cpp
@@ -46,6 +51,13 @@ add_executable(${PROJECT_NAME}
   )
 
 target_link_libraries(${PROJECT_NAME} glm glfw SDL2-static SDL2::SDL2main geGL::geGL)
+
+target_link_libraries(${PROJECT_NAME} ${BULLET_LIBRARIES})
+target_include_directories(${PROJECT_NAME} PUBLIC ${BULLET_INCLUDE_DIRECTORIES})
+
+message("DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD")
+message("AAA${BULLET_INCLUDE_DIR}BBB")
+message("XXX${BULLET_LIBRARIES}BBB")
 
 target_include_directories(${PROJECT_NAME} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/src)
 target_include_directories(${PROJECT_NAME} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/libs/)

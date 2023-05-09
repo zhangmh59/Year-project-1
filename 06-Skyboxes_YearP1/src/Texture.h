@@ -9,6 +9,7 @@
 
 #include"shaderClass.h"
 
+namespace skybox{
 class Texture
 {
 public:
@@ -27,4 +28,5 @@ public:
 	// Deletes a texture
 	void Delete();
 };
+}
 #endif
